@@ -5,9 +5,12 @@ from Personas import Personas
 
 
 def guardarPersonas():
+  # Guardar archivo json
   cadena = json.dumps([persona.aDiccionario() for persona in Personas.personas])
   with open("jugadores.json", 'w') as archivo:
     archivo.write(cadena)
+    
+  # Guardar archivo en SQL
     
 # instanciar ventana tkinter    
 raiz = tk.Tk()
@@ -17,7 +20,6 @@ marcoSuperior.pack(side=tk.TOP, fill=tk.X)
 
 marcoPrincipal = tk.Frame(raiz)
 marcoPrincipal.pack(side=tk.BOTTOM, fill=tk.BOTH, expand=True)
-
 
 # Boton de guardar
 boton = tk.Button(marcoSuperior, text="Guardar", command=guardarPersonas)
