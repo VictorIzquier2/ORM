@@ -4,3 +4,4 @@
 22:57:14 13/12/2023 [logger_base.py:41] ❌ : Mensaje a nivel de error
 22:57:14 13/12/2023 [logger_base.py:42] 🚫 : Mensaje a nivel crítico
 23:06:31 13/12/2023 [Conexion.py:20] 🐛 : Conexión a la BB.DD. realizada con éxito: <connection object at 0x0000024BC6105580; dsn: 'user=postgres password=xxx dbname=orm host=127.0.0.1 port=5434', closed: 0>
+00:12:10 14/12/2023 [Conexion.py:20] 🐛 : Conexión a la BB.DD. realizada con éxito: <connection object at 0x00000161EA8F9CF0; dsn: 'user=postgres password=xxx dbname=orm host=127.0.0.1 port=5434', closed: 0>

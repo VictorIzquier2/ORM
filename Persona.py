@@ -13,6 +13,11 @@ class Persona:
     self.color = "blue"
     self.entidad = ""
     
+  @classmethod
+  def paraDB(cls, cadena):
+    id_jugador, posx, posy, radio, direccion, color, entidad = cadena.split(',')
+    return cls(int(id_jugador), int(posx), int(posy), int(radio), int(direccion), color, entidad)
+    
   def dibuja(self):
     self.entidad = self.lienzo.create_oval(
       self.posx-self.radio/2,

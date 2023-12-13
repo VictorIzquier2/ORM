@@ -9,7 +9,7 @@ class Personas():
   @classmethod    
   def agregar_persona(cls, persona):
     Personas.contador_personas += 1
-    cls.personas.append(persona)  
+    cls.personas.append(persona) 
   
   def __str__(cls):
     personas_str = ''
