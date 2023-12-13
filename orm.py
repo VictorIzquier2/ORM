@@ -5,7 +5,7 @@ from Personas import Personas
 
 
 def guardarPersonas():
-  cadena = json.dumps([persona.aDiccionario() for persona in personas.personas])
+  cadena = json.dumps([persona.aDiccionario() for persona in Personas.personas])
   with open("jugadores.json", 'w') as archivo:
     archivo.write(cadena)
     
@@ -27,9 +27,6 @@ boton.pack(side=tk.LEFT)
 lienzo = tk.Canvas(marcoPrincipal, width=1024, height=1024)
 lienzo.pack()
 
-# instanciación de la clase Personas
-personas = Personas([])
-
 # Cargar personas desde el disco 
 try:
   with open("jugadores.json", "r") as carga:
@@ -38,9 +35,9 @@ try:
   if cargado: # Nos aseguramos que el contenido del archivo no está vacío  
     cargadolista = json.loads(cargado)
     for elemento in cargadolista:
-      persona = Persona(lienzo, personas)
+      persona = Persona(lienzo)
       persona.__dict__.update(elemento)
-      personas.agregar_persona(persona)
+      Personas.agregar_persona(persona)
   else:
     print("El archivo está vacío. Se crearán nuevas personas")
 except FileNotFoundError as FNFE:
@@ -51,19 +48,19 @@ except Exception as e:
   print(f"Hubo un error: {e}, {type(e)}")
 
 # En la coleccion instancio personas en el caso de que no existan
-if personas.contador_personas == 0:
+if Personas.contador_personas == 0:
   npersonas = 25
   for i in range(0, npersonas):
-    personas.agregar_persona(Persona(lienzo, personas))
+    Personas.agregar_persona(Persona(lienzo))
 
 # Para cada persona pintarlas en la pantalla
-for persona in personas.personas:
+for persona in Personas.personas:
   persona.dibuja()
   
 # creo un bucle repetitivo
 def bucle():
   # para ada persona en la coleccion
-  for persona in personas.personas:
+  for persona in Personas.personas:
     persona.mueve()
   raiz.after(10, bucle)    
   

@@ -4,25 +4,16 @@ from colores_basicos import COLORES_BASICOS
 
 class Personas():
   contador_personas = 0
+  personas = []
   
-  def __init__(self, personas):
-    self._personas = list(personas)
-    
-  @property
-  def personas(self):
-    return self._personas
-  
-  @personas.setter
-  def personas(self, personas):
-    self.personas = personas
-    
-  def agregar_persona(self, persona):
+  @classmethod    
+  def agregar_persona(cls, persona):
     Personas.contador_personas += 1
-    self.personas.append(persona)  
+    cls.personas.append(persona)  
   
-  def __str__(self):
+  def __str__(cls):
     personas_str = ''
-    for persona in self.personas:
+    for persona in cls.personas:
       personas_str += persona.__str__()
     return f'''
     Personas: {personas_str}

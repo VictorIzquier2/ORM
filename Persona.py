@@ -1,11 +1,11 @@
 import random
 import math
 from colores_basicos import COLORES_BASICOS
+from Personas import Personas
 
 class Persona:
-  def __init__(self, lienzo, personas):
+  def __init__(self, lienzo):
     self.lienzo = lienzo
-    self.personas = personas
     self.posx = random.randint(30, 994)
     self.posy = random.randint(30, 994)
     self.radio = 30
@@ -47,8 +47,8 @@ class Persona:
   def colisiona(self):
     if self.posx - self.radio/2 < 0 or self.posx + self.radio/2 > 1024 or self.posy - self.radio/2 < 0 or self.posy + self.radio/2 > 1024:
         self.direccion += 180
-      
-    for otraPersona in self.personas.personas:
+
+    for otraPersona in Personas.personas:
         if otraPersona != self:
             distancia = math.sqrt((otraPersona.posx - self.posx)**2 + (otraPersona.posy - self.posy)**2)
             if distancia < self.radio:
