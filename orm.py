@@ -8,10 +8,9 @@ from PersonaDAO import PersonaDAO
 def guardarPersonas():
   # Guardar archivo json
   for persona in Personas.personas:
-    if persona.energia > 0:
-      cadena = json.dumps([persona.aDiccionario() for persona in Personas.personas])
-      with open("jugadores.json", 'w', encoding='utf8') as archivo:
-        archivo.write(cadena)
+    cadena = json.dumps([persona.aDiccionario() for persona in Personas.personas])
+    with open("jugadores.json", 'w', encoding='utf8') as archivo:
+      archivo.write(cadena)
         
   with open("jugadores.json", 'r', encoding='utf8') as archivo:
     jugadores = json.load(archivo)
@@ -44,8 +43,7 @@ def guardarPersonas():
         entidad_energia = jugador['entidad_energia']
         entidad_afiliacion = jugador['entidad_afiliacion']
         persona = Persona(id_jugador, posx, posy, radio, direccion, color, entidad, energia, afiliacion, entidad_energia, entidad_afiliacion )
-        if persona.energia > 0:
-          PersonaDAO.actualizar(persona)
+        PersonaDAO.actualizar(persona)
           
 def mostrar_mensaje_ganador(color_ganador):
   ventana_mensaje = tk.Toplevel(raiz)
@@ -131,6 +129,8 @@ def bucle():
       
   for persona in personas_a_eliminar:
     Personas.eliminar_persona(persona.id_jugador)
+    if PersonaDAO.existe_registro(persona):
+      PersonaDAO.eliminar(persona)
   raiz.after(1, bucle)    
   
 bucle()

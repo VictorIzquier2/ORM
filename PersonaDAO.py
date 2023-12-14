@@ -11,6 +11,7 @@ class PersonaDAO:
   
   _SELECCIONAR = 'SELECT * FROM jugadores ORDER BY id_jugador'
   _COMPROBAR = 'SELECT EXISTS(SELECT 1 FROM jugadores)'
+  _EXISTE_REGISTRO = 'SELECT EXISTS(SELECT 1 FROM jugadores WHERE id_jugador=%s)'
   _INSERTAR = 'INSERT INTO jugadores(id_jugador, posx, posy, radio, direccion, color, entidad, energia, afiliacion, entidad_energia, entidad_afiliacion) VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)'
   _ACTUALIZAR = 'UPDATE jugadores SET posx=%s, posy=%s, radio=%s, direccion=%s, color=%s, entidad=%s, energia=%s, afiliacion=%s, entidad_energia=%s, entidad_afiliacion=%s WHERE id_jugador=%s'
   _ELIMINAR  = 'DELETE FROM jugadores WHERE id_jugador=%s'
@@ -64,6 +65,13 @@ class PersonaDAO:
         cursor.execute(cls._COMPROBAR)
         comprobacion = cursor.fetchone()[0]
         return comprobacion
+      
+  @classmethod
+  def existe_registro(cls, p):
+    with Conexion.obtenerConexion() as conexion:
+      with conexion.cursor() as cursor: 
+        cursor.execute(cls._EXISTE_REGISTRO, (p.id_jugador,))
+        return cursor.fetchone()[0]
 # Pruebas
 if __name__ == '__main__':
   # Insertar un registro

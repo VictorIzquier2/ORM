@@ -135,18 +135,10 @@ class Persona:
                 # Si la energía llega a 0 los objetos se destruyen
                 else:
                   if self.energia > 0:
-                    self.energia -= 25
-                  else:
-                    Personas.eliminar_persona(self.id_jugador)
-                    self.eliminar()
-
+                    self.energia -= 25           
                   if otraPersona.energia > 0:
                     otraPersona.energia -= 25
-                  else:
-                    Personas.eliminar_persona(otraPersona.id_jugador)
-                    otraPersona.eliminar()
-                  
-
+                    
                 # Separar los objetos
                 entrelazamiento = self.radio - distancia
                 self.posx -= math.cos(self.direccion) * entrelazamiento
