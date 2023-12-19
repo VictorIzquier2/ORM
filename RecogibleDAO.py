@@ -8,8 +8,8 @@ class RecogibleDAO:
   _SELECCIONAR = 'SELECT * FROM recogibles ORDER BY id_jugador'
   _COMPROBAR = 'SELECT EXISTS(SELECT 1 FROM recogibles)'
   _EXISTE_REGISTRO = 'SELECT EXISTS(SELECT 1 FROM recogibles WHERE id_recogible=%s)'
-  _INSERTAR = 'INSERT INTO recogibles(id_recogible, id_jugador, posx, posy, color) VALUES(%s, %s, %s, %s, %s)'
-  _ACTUALIZAR = 'UPDATE recogibles SET id_jugador=%s, posx=%s, posy=%s, color=%s WHERE id_recogible=%s'
+  _INSERTAR = 'INSERT INTO recogibles(id_recogible, id_jugador, posx, posy, radio, color, entidad) VALUES(%s, %s, %s, %s, %s, %s, %s)'
+  _ACTUALIZAR = 'UPDATE recogibles SET id_jugador=%s, posx=%s, posy=%s, radio=%s, color=%s, entidad=%s WHERE id_recogible=%s'
   _ELIMINAR  = 'DELETE FROM recogibles WHERE id_recogible=%s'
   _ELIMINAR_DE_JUGADOR = 'DELETE FROM recogibles WHERE id_jugador=%s'
   
@@ -25,7 +25,7 @@ class RecogibleDAO:
         recogibles = []
         for registro in registros_recogibles:
           # A través de las posiciones dentro del registro se accede a los campos de Persona
-          recogible = Recogible(registro[0], registro[1], registro[2], registro[3], registro[4])
+          recogible = Recogible(registro[0], registro[1], registro[2], registro[3], registro[4], registro[5], registro[6])
           recogibles.append(recogible)
         return recogibles
       
@@ -33,7 +33,7 @@ class RecogibleDAO:
   def insertar(cls, r):
     with Conexion.obtenerConexion() as conexion:
       with conexion.cursor() as cursor:
-        valores = (r.id_recogible, r.id_jugador, r.posx, r.posy, r.color)
+        valores = (r.id_recogible, r.id_jugador, r.posx, r.posy, r.radio, r.color, r.entidad)
         cursor.execute(cls._INSERTAR, valores)
         log.debug(f'Recogible insertado: {r}')
         return cursor.rowcount
@@ -42,7 +42,7 @@ class RecogibleDAO:
   def actualizar(cls, r):
     with Conexion.obtenerConexion() as conexion:
       with conexion.cursor() as cursor:
-        valores = (r.id_jugador, r.posx, r.posy, r.color, r.id_recogible)
+        valores = (r.id_jugador, r.posx, r.posy, r.radio, r.color, r.entidad, r.id_recogible)
         cursor.execute(cls._ACTUALIZAR, valores)
         log.debug(f'Recogible actualizado: {r}')  
         return cursor.rowcount
@@ -55,15 +55,6 @@ class RecogibleDAO:
         cursor.execute(cls._ELIMINAR, valores)
         log.debug(f'Recogible eliminado: {r}')
         return cursor.rowcount
-  
-  @classmethod
-  def eliminar(cls, p):
-    with Conexion.obtenerConexion() as conexion:
-      with conexion.cursor() as cursor:
-        inventario_json = json.dumps(p.inventario)
-        valores = (p.id_jugador,)
-        cursor.execute(cls._ELIMINAR_DE_JUGADOR, valores)
-        log.debug(f'Recogibles eliminados: {inventario_json}')
       
   @classmethod
   def comprobar(cls):
@@ -82,12 +73,12 @@ class RecogibleDAO:
 # Pruebas
 if __name__ == '__main__':
   # Insertar un registro
-  '''recogible1 = Recogible(id_recogible=1, id_jugador=1, posx=512, posy=512, color='blue')
+  '''recogible1 = Recogible(id_recogible=1, id_jugador=1, posx=512, posy=512, color='blue', entidad='')
   recogible_insertado = RecogibleDAO.insertar(recogible1)
   log.debug(f'Recogible insertado: {recogible_insertado}')'''
   
   # Actualizar un registro
-  ''' recogible1 = Recogible(1, 1, 256, 256, 'red')
+  ''' recogible1 = Recogible(1, 1, 256, 256, 'red', '')
   recogible_actualizado = RecogibleDAO.actualizar(recogible1)
   log.debug(f'Recogible actualizado: {recogible_actualizado}')'''
   

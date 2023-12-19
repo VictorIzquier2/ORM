@@ -5,6 +5,7 @@ from Persona import Persona
 from Personas import Personas
 from PersonaDAO import PersonaDAO
 from Recogible import Recogible
+from Recogibles import Recogibles
 from RecogibleDAO import RecogibleDAO
 
 def guardarPersonas():
@@ -12,6 +13,11 @@ def guardarPersonas():
   for persona in Personas.personas:
     cadena = json.dumps([persona.aDiccionario() for persona in Personas.personas])
     with open("jugadores.json", 'w', encoding='utf8') as archivo:
+      archivo.write(cadena)
+      
+  for recogible in Recogibles.recogibles:
+    cadena = json.dumps([recogible.aDiccionario() for recogible in Recogibles.recogibles])
+    with open("recogibles.json", "w", encoding='utf8') as archivo:
       archivo.write(cadena)
         
   with open("jugadores.json", 'r', encoding='utf8') as archivo:
@@ -48,6 +54,31 @@ def guardarPersonas():
         inventario = jugador['inventario']
         persona = Persona(id_jugador, posx, posy, radio, direccion, color, entidad, energia, afiliacion, entidad_energia, entidad_afiliacion, inventario)
         PersonaDAO.actualizar(persona)
+        
+  with open("recogibles.json", 'r', encoding='utf8') as archivo:
+    recogibles = json.load(archivo)
+    if not RecogibleDAO.comprobar():
+      for recogible in recogibles:
+        id_recogible = recogible['id_recogible']
+        id_jugador = recogible['id_jugador']
+        posx = recogible['posx']
+        posy =recogible['posy']
+        radio = recogible['radio']
+        color = recogible['color']
+        entidad = recogible['entidad']
+        recogible = Recogible(id_recogible, id_jugador, posx, posy, radio, color, entidad)
+        RecogibleDAO.insertar(recogible)   
+    else:
+      for recogible in recogibles:
+        id_recogible = recogible['id_recogible']
+        id_jugador = recogible['id_jugador']
+        posx = recogible['posx']
+        posy = recogible['posy']
+        radio = recogible['radio']
+        color = recogible['color']
+        entidad = recogible['entidad']
+        recogible = Recogible(id_recogible, id_jugador, posx, posy, radio, color, entidad)
+        RecogibleDAO.actualizar(recogible)
           
 def mostrar_mensaje_ganador(color_ganador):
   ventana_mensaje = tk.Toplevel(raiz)
@@ -80,6 +111,9 @@ lienzo.pack()
 try:
   with open("jugadores.json", "r") as carga:
     cargado = carga.read()
+    
+  with open("recogibles.json", "r") as carga2:
+    cargado2 = carga2.read()
   
   if cargado: # Nos aseguramos que el contenido del archivo no está vacío  
     cargadolista = json.loads(cargado)
@@ -91,6 +125,15 @@ try:
   else:
     print("El archivo está vacío. Se crearán nuevas personas")
     
+  if cargado2:
+    cargadolista2 = json.loads(cargado2)
+    for elemento in cargadolista2:
+      Recogible.lienzo = lienzo
+      recogible = Recogible.recogible_random()
+      recogible.__dict__.update(elemento)
+      Recogibles.agregar_recogible(recogible)
+  else:
+    print("El archivo está vacío. Se crearán nuevos recogibles")
     
 except FileNotFoundError as FNFE:
   print(f"Error: Archivo no encontrado: {FNFE}")
@@ -107,12 +150,26 @@ if Personas.contador_personas == 0:
     persona = Persona.jugador_random()
     
     Personas.agregar_persona(persona)
+    
+if Recogibles.contador_recogibles == 0:
+  nrecogibles = 3
+  for i in range(0, nrecogibles):
+    Recogible.lienzo = lienzo
+    recogible = Recogible.recogible_random()
+    
+    Recogibles.agregar_recogible(recogible)
 
 # Para cada persona pintarlas en la pantalla
 for persona in Personas.personas:
   if persona.energia > 0:
     persona.dibuja()
-  
+    
+for recogible in Recogibles.recogibles:
+  print(recogible)
+  if recogible.id_jugador == None:
+    recogible.dibuja()
+
+contador = 0
 # creo un bucle repetitivo
 def bucle():
   colores_activos = {persona.color for persona in Personas.personas if persona.energia > 0}
@@ -122,7 +179,7 @@ def bucle():
     mostrar_mensaje_ganador(color_ganador)
     return
   
-  # para ada persona en la coleccion
+  # para cada persona en la coleccion
   personas_a_eliminar = []
   for persona in Personas.personas:
     if persona.energia > 0:
@@ -135,7 +192,19 @@ def bucle():
     Personas.eliminar_persona(persona.id_jugador)
     if PersonaDAO.existe_registro(persona):
       PersonaDAO.eliminar(persona)
-  raiz.after(1, bucle)    
+      
+  recogibles_a_eliminar = []
+  for recogible in Recogibles.recogibles:
+    if recogible.id_jugador !=None:
+      recogible.eliminar()
+      recogibles_a_eliminar.append(recogible)
+      
+  for recogible in recogibles_a_eliminar:
+    Recogibles.eliminar_recogible(recogible)
+    if RecogibleDAO.existe_registro(recogible):
+      RecogibleDAO.eliminar(recogible)      
+  
+  raiz.after(5, bucle)    
   
 bucle()
 

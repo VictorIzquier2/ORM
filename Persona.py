@@ -2,7 +2,9 @@ import random
 import math
 from colores_basicos import COLORES_BASICOS
 from Personas import Personas
+from Recogibles import Recogibles
 from Entidad import Entidad
+from logger_base import log
 
 class Persona(Entidad):
   lienzo = None
@@ -24,11 +26,9 @@ class Persona(Entidad):
     return Persona(id_jugador, posx, posy,radio, direccion, color, entidad, energia, afiliacion, entidad_energia, entidad_afiliacion, inventario)
   
   def __init__(self, id_jugador=None, posx=None, posy=None, radio=None, direccion=None, color=None, entidad=None, energia=None, afiliacion=None, entidad_energia=None, entidad_afiliacion=None, inventario=None):
-    super().__init__(posx, posy, color)
+    super().__init__(posx, posy, radio, color, entidad)
     self.id_jugador = id_jugador
-    self.radio = radio
     self.direccion = direccion
-    self.entidad = entidad
     self.energia = energia
     self.afiliacion = afiliacion
     self.entidad_energia = entidad_energia
@@ -106,7 +106,7 @@ class Persona(Entidad):
       "afiliacion": self.afiliacion,
       "entidad_energia": self.entidad_energia,
       "entidad_afiliacion": self.entidad_afiliacion,
-      "inventario": [vars(item) for item in self.inventario]
+      "inventario": self.inventario
     }
     
   def cambiaColor(self, nuevo_color):
@@ -118,39 +118,57 @@ class Persona(Entidad):
         self.direccion += 180
 
     for otraPersona in Personas.personas:
-        if otraPersona != self:
-            distancia = math.sqrt((otraPersona.posx - self.posx)**2 + (otraPersona.posy - self.posy)**2)
-            if distancia < self.radio:
-                # Calcular el ángulo de colisión y ajustar la dirección
-                # (Opcional: puedes mejorar este cálculo para un efecto más realista)
-                self.direccion += 180
-                otraPersona.direccion += 180
+      if otraPersona != self:
+        distancia = math.sqrt((otraPersona.posx - self.posx)**2 + (otraPersona.posy - self.posy)**2)
+        if distancia < self.radio:
+          # Calcular el ángulo de colisión y ajustar la dirección
+          # (Opcional: puedes mejorar este cálculo para un efecto más realista)
+          self.direccion += 180
+          otraPersona.direccion += 180
+          
+          # Si los colores de ambos coinciden aumenta la afiliación hasta 100
+          if self.color == otraPersona.color:
+            if self.afiliacion < 100:
+              self.afiliacion += 25
+            if otraPersona.afiliacion < 100:
+              otraPersona.afiliacion += 25
+
+          # Si los colores de ambos no coinciden, disminuye la energía hasta 0
+          # Si la energía llega a 0 los objetos se destruyen
+          else:
+            if self.energia > 0:
+              self.energia -= 25           
+            if otraPersona.energia > 0:
+              otraPersona.energia -= 25
+              
+          # Separar los objetos
+          entrelazamiento = self.radio - distancia
+          self.posx -= math.cos(self.direccion) * entrelazamiento
+          self.posy -= math.sin(self.direccion) * entrelazamiento
+          otraPersona.posx += math.cos(otraPersona.direccion) * entrelazamiento
+          otraPersona.posy += math.sin(otraPersona.direccion) * entrelazamiento
+          
+          # Cambiar el color de las personas
+          nuevoColor = random.choice(COLORES_BASICOS)
+          if self.afiliacion < 100:
+            self.cambiaColor(nuevoColor)
+          if otraPersona.afiliacion < 100:
+            otraPersona.cambiaColor(nuevoColor)
                 
-                # Si los colores de ambos coinciden aumenta la afiliación hasta 100
-                if self.color == otraPersona.color:
-                  if self.afiliacion < 100:
-                    self.afiliacion += 25
-                  if otraPersona.afiliacion < 100:
-                    otraPersona.afiliacion += 25
-      
-                # Si los colores de ambos no coinciden, disminuye la energía hasta 0
-                # Si la energía llega a 0 los objetos se destruyen
-                else:
-                  if self.energia > 0:
-                    self.energia -= 25           
-                  if otraPersona.energia > 0:
-                    otraPersona.energia -= 25
-                    
-                # Separar los objetos
-                entrelazamiento = self.radio - distancia
-                self.posx -= math.cos(self.direccion) * entrelazamiento
-                self.posy -= math.sin(self.direccion) * entrelazamiento
-                otraPersona.posx += math.cos(otraPersona.direccion) * entrelazamiento
-                otraPersona.posy += math.sin(otraPersona.direccion) * entrelazamiento
-                
-                # Cambiar el color de las personas
-                nuevoColor = random.choice(COLORES_BASICOS)
-                if self.afiliacion < 100:
-                  self.cambiaColor(nuevoColor)
-                if otraPersona.afiliacion < 100:
-                  otraPersona.cambiaColor(nuevoColor)
+    for recogible in Recogibles.recogibles:
+      if recogible != self:
+        distancia = math.sqrt((recogible.posx - self.posx)**2 + (recogible.posy - self.posy)**2)
+        if distancia < self.radio:
+          if recogible.id_jugador == None:
+            recogible.id_jugador = self.id_jugador
+          self.inventario.append(recogible.aDiccionario())
+          self.energia = 100
+            
+        
+if __name__ == '__main__':
+  persona1 = Persona(1, 497, 497, 30, 180, 'white', '', 100, 0, '', '', [])
+  persona2 = Persona.jugador_random()
+  log.debug(persona1)
+  log.debug(persona2)
+  log.debug(persona1.aDiccionario())
+  log.debug(persona2.aDiccionario())

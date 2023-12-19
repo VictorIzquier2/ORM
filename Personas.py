@@ -1,6 +1,5 @@
-import random
-import math
 from colores_basicos import COLORES_BASICOS
+from logging import log
 
 class Personas():
   contador_personas = 0
@@ -13,7 +12,10 @@ class Personas():
     
   @classmethod
   def eliminar_persona(cls, id_jugador):
-    cls.perssonas = [persona for persona in cls.personas if persona.id_jugador != id_jugador]
+    for persona in cls.personas:
+      if persona.id_jugador == id_jugador:
+        indice = cls.personas.index(persona)
+        cls.personas.pop(indice)
     Personas.contador_personas -=1
   
   def __str__(cls):
