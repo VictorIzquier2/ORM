@@ -2,8 +2,9 @@ import random
 import math
 from colores_basicos import COLORES_BASICOS
 from Personas import Personas
+from Entidad import Entidad
 
-class Persona:
+class Persona(Entidad):
   lienzo = None
   
   @classmethod
@@ -19,20 +20,20 @@ class Persona:
     afiliacion = 0
     entidad_energia = ""
     entidad_afiliacion = ""
-    return Persona(id_jugador, posx, posy,radio, direccion, color, entidad, energia, afiliacion, entidad_energia, entidad_afiliacion)
+    inventario = []
+    return Persona(id_jugador, posx, posy,radio, direccion, color, entidad, energia, afiliacion, entidad_energia, entidad_afiliacion, inventario)
   
-  def __init__(self, id_jugador=None, posx=None, posy=None, radio=None, direccion=None, color=None, entidad=None, energia=None, afiliacion=None, entidad_energia=None, entidad_afiliacion=None):
+  def __init__(self, id_jugador=None, posx=None, posy=None, radio=None, direccion=None, color=None, entidad=None, energia=None, afiliacion=None, entidad_energia=None, entidad_afiliacion=None, inventario=None):
+    super().__init__(posx, posy, color)
     self.id_jugador = id_jugador
-    self.posx = posx
-    self.posy = posy
     self.radio = radio
     self.direccion = direccion
-    self.color = color
     self.entidad = entidad
     self.energia = energia
     self.afiliacion = afiliacion
     self.entidad_energia = entidad_energia
     self.entidad_afiliacion = entidad_afiliacion
+    self.inventario = inventario
     
   def dibuja(self):
     self.entidad = self.lienzo.create_oval(
@@ -104,7 +105,8 @@ class Persona:
       "energia": self.energia,
       "afiliacion": self.afiliacion,
       "entidad_energia": self.entidad_energia,
-      "entidad_afiliacion": self.entidad_afiliacion
+      "entidad_afiliacion": self.entidad_afiliacion,
+      "inventario": [vars(item) for item in self.inventario]
     }
     
   def cambiaColor(self, nuevo_color):

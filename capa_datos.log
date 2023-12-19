@@ -1,5 +1,144 @@
-22:57:14 13/12/2023 [logger_base.py:38] 🐛 : Mensaje a nivel debug
-22:57:14 13/12/2023 [logger_base.py:39] 🌐 : Mensaje a nivel de info
-22:57:14 13/12/2023 [logger_base.py:40] 🚨 : Mensaje a nivel de warning
-22:57:14 13/12/2023 [logger_base.py:41] ❌ : Mensaje a nivel de error
-22:57:14 13/12/2023 [logger_base.py:42] 🚫 : Mensaje a nivel crítico
+12:30:07 14/12/2023 [logger_base.py:38] 🐛 : Mensaje a nivel debug
+12:30:07 14/12/2023 [logger_base.py:39] 🌐 : Mensaje a nivel de info
+12:30:07 14/12/2023 [logger_base.py:40] 🚨 : Mensaje a nivel de warning
+12:30:07 14/12/2023 [logger_base.py:41] ❌ : Mensaje a nivel de error
+12:30:07 14/12/2023 [logger_base.py:42] 🚫 : Mensaje a nivel crítico
+12:31:20 14/12/2023 [Conexion.py:20] 🐛 : Conexión a la BB.DD. realizada con éxito: <connection object at 0x000001ECC2991580; dsn: 'user=postgres password=xxx dbname=orm host=127.0.0.1 port=5434', closed: 0>
+12:38:27 14/12/2023 [Conexion.py:20] 🐛 : Conexión a la BB.DD. realizada con éxito: <connection object at 0x000002826AF91580; dsn: 'user=postgres password=xxx dbname=orm host=127.0.0.1 port=5434', closed: 0>
+12:38:29 14/12/2023 [PersonaDAO.py:40] 🐛 : Persona insertada: <Persona.Persona object at 0x000002826AFA44A0>
+12:38:29 14/12/2023 [PersonaDAO.py:40] 🐛 : Persona insertada: <Persona.Persona object at 0x000002826AF6BE00>
+12:38:29 14/12/2023 [PersonaDAO.py:40] 🐛 : Persona insertada: <Persona.Persona object at 0x000002826AF9E240>
+12:38:29 14/12/2023 [PersonaDAO.py:40] 🐛 : Persona insertada: <Persona.Persona object at 0x000002826AF9C710>
+12:38:29 14/12/2023 [PersonaDAO.py:40] 🐛 : Persona insertada: <Persona.Persona object at 0x000002826AF9E240>
+12:38:29 14/12/2023 [PersonaDAO.py:40] 🐛 : Persona insertada: <Persona.Persona object at 0x000002826AFA4710>
+12:38:29 14/12/2023 [PersonaDAO.py:40] 🐛 : Persona insertada: <Persona.Persona object at 0x000002826AF9E240>
+12:38:29 14/12/2023 [PersonaDAO.py:40] 🐛 : Persona insertada: <Persona.Persona object at 0x000002826AFA4560>
+12:38:29 14/12/2023 [PersonaDAO.py:40] 🐛 : Persona insertada: <Persona.Persona object at 0x000002826AF9E240>
+12:38:29 14/12/2023 [PersonaDAO.py:40] 🐛 : Persona insertada: <Persona.Persona object at 0x000002826AF9C920>
+12:38:29 14/12/2023 [PersonaDAO.py:40] 🐛 : Persona insertada: <Persona.Persona object at 0x000002826AF6B680>
+12:38:29 14/12/2023 [PersonaDAO.py:40] 🐛 : Persona insertada: <Persona.Persona object at 0x000002826AFA4920>
+12:38:29 14/12/2023 [PersonaDAO.py:40] 🐛 : Persona insertada: <Persona.Persona object at 0x000002826AF6B4D0>
+12:38:29 14/12/2023 [PersonaDAO.py:40] 🐛 : Persona insertada: <Persona.Persona object at 0x000002826AFA49B0>
+12:38:29 14/12/2023 [PersonaDAO.py:40] 🐛 : Persona insertada: <Persona.Persona object at 0x000002826AFA4B90>
+12:38:29 14/12/2023 [PersonaDAO.py:40] 🐛 : Persona insertada: <Persona.Persona object at 0x000002826AF9CC50>
+12:38:29 14/12/2023 [PersonaDAO.py:40] 🐛 : Persona insertada: <Persona.Persona object at 0x000002826AFA4D70>
+12:38:29 14/12/2023 [PersonaDAO.py:40] 🐛 : Persona insertada: <Persona.Persona object at 0x000002826AEFC830>
+12:38:29 14/12/2023 [PersonaDAO.py:40] 🐛 : Persona insertada: <Persona.Persona object at 0x000002826AFA5070>
+12:38:29 14/12/2023 [PersonaDAO.py:40] 🐛 : Persona insertada: <Persona.Persona object at 0x000002826AF9D160>
+12:38:29 14/12/2023 [PersonaDAO.py:40] 🐛 : Persona insertada: <Persona.Persona object at 0x000002826AFA5310>
+12:38:29 14/12/2023 [PersonaDAO.py:40] 🐛 : Persona insertada: <Persona.Persona object at 0x000002826AFA5460>
+12:38:29 14/12/2023 [PersonaDAO.py:40] 🐛 : Persona insertada: <Persona.Persona object at 0x000002826AFA5550>
+12:38:29 14/12/2023 [PersonaDAO.py:40] 🐛 : Persona insertada: <Persona.Persona object at 0x000002826AFA54F0>
+12:38:29 14/12/2023 [PersonaDAO.py:40] 🐛 : Persona insertada: <Persona.Persona object at 0x000002826AFA5670>
+12:38:29 14/12/2023 [PersonaDAO.py:58] 🐛 : Objeto eliminado: <Persona.Persona object at 0x000002826AF6A1E0>
+12:38:29 14/12/2023 [PersonaDAO.py:58] 🐛 : Objeto eliminado: <Persona.Persona object at 0x000002826AE29730>
+12:38:29 14/12/2023 [PersonaDAO.py:58] 🐛 : Objeto eliminado: <Persona.Persona object at 0x000002826AF6A210>
+12:38:30 14/12/2023 [PersonaDAO.py:58] 🐛 : Objeto eliminado: <Persona.Persona object at 0x000002826AE859D0>
+12:38:30 14/12/2023 [PersonaDAO.py:58] 🐛 : Objeto eliminado: <Persona.Persona object at 0x000002826AF69E80>
+12:38:31 14/12/2023 [PersonaDAO.py:58] 🐛 : Objeto eliminado: <Persona.Persona object at 0x000002826AF6A2D0>
+12:38:31 14/12/2023 [PersonaDAO.py:58] 🐛 : Objeto eliminado: <Persona.Persona object at 0x000002826AF6A240>
+12:38:31 14/12/2023 [PersonaDAO.py:58] 🐛 : Objeto eliminado: <Persona.Persona object at 0x000002826AF6A330>
+12:38:34 14/12/2023 [PersonaDAO.py:58] 🐛 : Objeto eliminado: <Persona.Persona object at 0x000002826AF6A090>
+12:38:35 14/12/2023 [PersonaDAO.py:58] 🐛 : Objeto eliminado: <Persona.Persona object at 0x000002826AEFEA20>
+12:38:36 14/12/2023 [PersonaDAO.py:58] 🐛 : Objeto eliminado: <Persona.Persona object at 0x000002826AF69FD0>
+12:38:36 14/12/2023 [PersonaDAO.py:58] 🐛 : Objeto eliminado: <Persona.Persona object at 0x000002826AF6A0F0>
+12:38:36 14/12/2023 [PersonaDAO.py:58] 🐛 : Objeto eliminado: <Persona.Persona object at 0x000002826AF6A2A0>
+12:38:37 14/12/2023 [PersonaDAO.py:58] 🐛 : Objeto eliminado: <Persona.Persona object at 0x000002826AF69D30>
+12:38:44 14/12/2023 [PersonaDAO.py:58] 🐛 : Objeto eliminado: <Persona.Persona object at 0x000002826AF69EB0>
+12:38:47 14/12/2023 [PersonaDAO.py:58] 🐛 : Objeto eliminado: <Persona.Persona object at 0x00000282691DDA00>
+12:38:48 14/12/2023 [PersonaDAO.py:58] 🐛 : Objeto eliminado: <Persona.Persona object at 0x000002826AF69C10>
+12:38:48 14/12/2023 [PersonaDAO.py:58] 🐛 : Objeto eliminado: <Persona.Persona object at 0x0000028269223050>
+12:38:49 14/12/2023 [PersonaDAO.py:58] 🐛 : Objeto eliminado: <Persona.Persona object at 0x000002826AF69BB0>
+12:38:53 14/12/2023 [PersonaDAO.py:58] 🐛 : Objeto eliminado: <Persona.Persona object at 0x000002826AF6A3C0>
+12:38:54 14/12/2023 [PersonaDAO.py:58] 🐛 : Objeto eliminado: <Persona.Persona object at 0x000002826AF6A360>
+12:38:56 14/12/2023 [PersonaDAO.py:58] 🐛 : Objeto eliminado: <Persona.Persona object at 0x000002826AF6A390>
+12:38:58 14/12/2023 [PersonaDAO.py:58] 🐛 : Objeto eliminado: <Persona.Persona object at 0x000002826AF69DF0>
+12:39:41 14/12/2023 [Conexion.py:20] 🐛 : Conexión a la BB.DD. realizada con éxito: <connection object at 0x0000016129CE1580; dsn: 'user=postgres password=xxx dbname=orm host=127.0.0.1 port=5434', closed: 0>
+19:52:07 18/12/2023 [Conexion.py:20] 🐛 : Conexión a la BB.DD. realizada con éxito: <connection object at 0x000001524A9B5580; dsn: 'user=postgres password=xxx dbname=orm host=127.0.0.1 port=5434', closed: 0>
+19:52:21 18/12/2023 [PersonaDAO.py:40] 🐛 : Persona insertada: <Persona.Persona object at 0x000001524A9D4140>
+19:52:21 18/12/2023 [PersonaDAO.py:40] 🐛 : Persona insertada: <Persona.Persona object at 0x000001524A99F7D0>
+19:52:21 18/12/2023 [PersonaDAO.py:40] 🐛 : Persona insertada: <Persona.Persona object at 0x000001524A9CE6F0>
+19:52:21 18/12/2023 [PersonaDAO.py:40] 🐛 : Persona insertada: <Persona.Persona object at 0x000001524A9C6B40>
+19:52:21 18/12/2023 [PersonaDAO.py:40] 🐛 : Persona insertada: <Persona.Persona object at 0x000001524A99E6F0>
+19:52:21 18/12/2023 [PersonaDAO.py:40] 🐛 : Persona insertada: <Persona.Persona object at 0x000001524A9CF710>
+19:52:21 18/12/2023 [PersonaDAO.py:40] 🐛 : Persona insertada: <Persona.Persona object at 0x000001524A9CF7D0>
+19:52:21 18/12/2023 [PersonaDAO.py:40] 🐛 : Persona insertada: <Persona.Persona object at 0x000001524A9CE6F0>
+19:52:21 18/12/2023 [PersonaDAO.py:40] 🐛 : Persona insertada: <Persona.Persona object at 0x000001524A9C4590>
+19:52:21 18/12/2023 [PersonaDAO.py:40] 🐛 : Persona insertada: <Persona.Persona object at 0x000001524A99F7D0>
+19:52:21 18/12/2023 [PersonaDAO.py:40] 🐛 : Persona insertada: <Persona.Persona object at 0x000001524A9D4410>
+19:52:21 18/12/2023 [PersonaDAO.py:40] 🐛 : Persona insertada: <Persona.Persona object at 0x000001524A9C45C0>
+19:52:21 18/12/2023 [PersonaDAO.py:40] 🐛 : Persona insertada: <Persona.Persona object at 0x000001524A9D44D0>
+19:52:21 18/12/2023 [PersonaDAO.py:40] 🐛 : Persona insertada: <Persona.Persona object at 0x000001524A9D45F0>
+19:52:21 18/12/2023 [PersonaDAO.py:40] 🐛 : Persona insertada: <Persona.Persona object at 0x000001524A9D49E0>
+19:52:21 18/12/2023 [PersonaDAO.py:40] 🐛 : Persona insertada: <Persona.Persona object at 0x000001524A9CC8C0>
+19:52:21 18/12/2023 [PersonaDAO.py:40] 🐛 : Persona insertada: <Persona.Persona object at 0x000001524A9D4590>
+19:52:21 18/12/2023 [PersonaDAO.py:40] 🐛 : Persona insertada: <Persona.Persona object at 0x000001524A9D4410>
+19:52:21 18/12/2023 [PersonaDAO.py:40] 🐛 : Persona insertada: <Persona.Persona object at 0x000001524A9D49B0>
+19:52:21 18/12/2023 [PersonaDAO.py:40] 🐛 : Persona insertada: <Persona.Persona object at 0x000001524A9C4B30>
+19:52:21 18/12/2023 [PersonaDAO.py:40] 🐛 : Persona insertada: <Persona.Persona object at 0x000001524A9D4BF0>
+19:52:21 18/12/2023 [PersonaDAO.py:40] 🐛 : Persona insertada: <Persona.Persona object at 0x000001524A9D4D10>
+19:52:21 18/12/2023 [PersonaDAO.py:40] 🐛 : Persona insertada: <Persona.Persona object at 0x000001524A9C4590>
+19:52:21 18/12/2023 [PersonaDAO.py:40] 🐛 : Persona insertada: <Persona.Persona object at 0x000001524A9C4CB0>
+19:52:21 18/12/2023 [PersonaDAO.py:40] 🐛 : Persona insertada: <Persona.Persona object at 0x000001524A9C4590>
+19:52:21 18/12/2023 [PersonaDAO.py:58] 🐛 : Objeto eliminado: <Persona.Persona object at 0x000001524A99D760>
+19:52:21 18/12/2023 [PersonaDAO.py:58] 🐛 : Objeto eliminado: <Persona.Persona object at 0x000001524A99DAF0>
+19:52:21 18/12/2023 [PersonaDAO.py:58] 🐛 : Objeto eliminado: <Persona.Persona object at 0x00000152488A7830>
+19:52:21 18/12/2023 [PersonaDAO.py:58] 🐛 : Objeto eliminado: <Persona.Persona object at 0x000001524A99DB80>
+19:52:21 18/12/2023 [PersonaDAO.py:58] 🐛 : Objeto eliminado: <Persona.Persona object at 0x000001524A99DA00>
+19:52:21 18/12/2023 [PersonaDAO.py:58] 🐛 : Objeto eliminado: <Persona.Persona object at 0x00000152488A7860>
+19:52:21 18/12/2023 [PersonaDAO.py:58] 🐛 : Objeto eliminado: <Persona.Persona object at 0x000001524A99D7C0>
+19:52:21 18/12/2023 [PersonaDAO.py:58] 🐛 : Objeto eliminado: <Persona.Persona object at 0x00000152488A79B0>
+19:52:21 18/12/2023 [PersonaDAO.py:58] 🐛 : Objeto eliminado: <Persona.Persona object at 0x000001524A9419D0>
+19:52:21 18/12/2023 [PersonaDAO.py:58] 🐛 : Objeto eliminado: <Persona.Persona object at 0x00000152488977D0>
+19:52:21 18/12/2023 [PersonaDAO.py:58] 🐛 : Objeto eliminado: <Persona.Persona object at 0x00000152488977A0>
+19:52:21 18/12/2023 [PersonaDAO.py:58] 🐛 : Objeto eliminado: <Persona.Persona object at 0x0000015248897800>
+19:52:21 18/12/2023 [PersonaDAO.py:58] 🐛 : Objeto eliminado: <Persona.Persona object at 0x00000152488A7A10>
+19:52:21 18/12/2023 [PersonaDAO.py:58] 🐛 : Objeto eliminado: <Persona.Persona object at 0x00000152488978F0>
+19:52:21 18/12/2023 [PersonaDAO.py:58] 🐛 : Objeto eliminado: <Persona.Persona object at 0x000001524A99DA60>
+19:52:21 18/12/2023 [PersonaDAO.py:58] 🐛 : Objeto eliminado: <Persona.Persona object at 0x000001524A99DA30>
+19:52:21 18/12/2023 [PersonaDAO.py:58] 🐛 : Objeto eliminado: <Persona.Persona object at 0x000001524A99DB50>
+19:52:21 18/12/2023 [PersonaDAO.py:58] 🐛 : Objeto eliminado: <Persona.Persona object at 0x000001524A99DBB0>
+19:52:21 18/12/2023 [PersonaDAO.py:58] 🐛 : Objeto eliminado: <Persona.Persona object at 0x000001524A99DC10>
+19:52:21 18/12/2023 [PersonaDAO.py:58] 🐛 : Objeto eliminado: <Persona.Persona object at 0x000001524A99DC40>
+19:52:21 18/12/2023 [PersonaDAO.py:58] 🐛 : Objeto eliminado: <Persona.Persona object at 0x000001524A99DCD0>
+19:52:22 18/12/2023 [PersonaDAO.py:58] 🐛 : Objeto eliminado: <Persona.Persona object at 0x000001524A99D6A0>
+19:52:23 18/12/2023 [PersonaDAO.py:58] 🐛 : Objeto eliminado: <Persona.Persona object at 0x00000152485F9790>
+00:49:14 19/12/2023 [Conexion.py:20] 🐛 : Conexión a la BB.DD. realizada con éxito: <connection object at 0x000001BA8A9D1690; dsn: 'user=postgres password=xxx dbname=orm host=127.0.0.1 port=5434', closed: 0>
+00:50:01 19/12/2023 [Conexion.py:20] 🐛 : Conexión a la BB.DD. realizada con éxito: <connection object at 0x0000023911821690; dsn: 'user=postgres password=xxx dbname=orm host=127.0.0.1 port=5434', closed: 0>
+00:56:33 19/12/2023 [Conexion.py:20] 🐛 : Conexión a la BB.DD. realizada con éxito: <connection object at 0x000002A5DB9C57A0; dsn: 'user=postgres password=xxx dbname=orm host=127.0.0.1 port=5434', closed: 0>
+01:03:42 19/12/2023 [Conexion.py:20] 🐛 : Conexión a la BB.DD. realizada con éxito: <connection object at 0x0000027AC1AE57A0; dsn: 'user=postgres password=xxx dbname=orm host=127.0.0.1 port=5434', closed: 0>
+01:03:42 19/12/2023 [PersonaDAO.py:42] 🐛 : Persona insertada: Entidad: [Posición X: 296.1776381042464, Posición Y: 173.90692219960573, Color: lime]
+01:03:42 19/12/2023 [PersonaDAO.py:42] 🐛 : Persona insertada: Entidad: [Posición X: 646.171509608121, Posición Y: 631.992524430528, Color: red]
+01:03:42 19/12/2023 [PersonaDAO.py:42] 🐛 : Persona insertada: Entidad: [Posición X: 620.6481149308282, Posición Y: 308.0028452138354, Color: teal]
+01:03:42 19/12/2023 [PersonaDAO.py:42] 🐛 : Persona insertada: Entidad: [Posición X: 147.45565595995834, Posición Y: 726.8083633336238, Color: aqua]
+01:03:42 19/12/2023 [PersonaDAO.py:42] 🐛 : Persona insertada: Entidad: [Posición X: 85.02522370822342, Posición Y: 562.531048251945, Color: red]
+01:03:55 19/12/2023 [PersonaDAO.py:61] 🐛 : Objeto eliminado: Entidad: [Posición X: 811.7841131668745, Posición Y: 623.6455694818127, Color: lime]
+01:03:56 19/12/2023 [PersonaDAO.py:61] 🐛 : Objeto eliminado: Entidad: [Posición X: 648.8469062146796, Posición Y: 647.0111430257612, Color: purple]
+01:04:01 19/12/2023 [PersonaDAO.py:61] 🐛 : Objeto eliminado: Entidad: [Posición X: 763.1080866075761, Posición Y: 853.9112530929004, Color: navy]
+01:04:20 19/12/2023 [PersonaDAO.py:61] 🐛 : Objeto eliminado: Entidad: [Posición X: 145.12544673597415, Posición Y: 712.3067597174136, Color: lime]
+01:04:20 19/12/2023 [PersonaDAO.py:61] 🐛 : Objeto eliminado: Entidad: [Posición X: 143.20884799634175, Posición Y: 682.6540576442784, Color: teal]
+01:48:50 19/12/2023 [Conexion.py:20] 🐛 : Conexión a la BB.DD. realizada con éxito: <connection object at 0x0000020ED08957A0; dsn: 'user=postgres password=xxx dbname=orm host=127.0.0.1 port=5434', closed: 0>
+01:48:50 19/12/2023 [PersonaDAO.py:43] 🐛 : Persona insertada: Entidad: [Posición X: 148.9721076552644, Posición Y: 228.52849221651675, Color: purple]
+01:48:50 19/12/2023 [PersonaDAO.py:43] 🐛 : Persona insertada: Entidad: [Posición X: 355.1376200432187, Posición Y: 934.7519005952233, Color: purple]
+01:48:50 19/12/2023 [PersonaDAO.py:43] 🐛 : Persona insertada: Entidad: [Posición X: 398.75373900985375, Posición Y: 401.6005623646372, Color: red]
+01:48:50 19/12/2023 [PersonaDAO.py:43] 🐛 : Persona insertada: Entidad: [Posición X: 372.6044811629223, Posición Y: 268.23134560091813, Color: red]
+01:48:50 19/12/2023 [PersonaDAO.py:43] 🐛 : Persona insertada: Entidad: [Posición X: 956.6949720018271, Posición Y: 143.06450790382922, Color: purple]
+02:45:52 19/12/2023 [Conexion.py:20] 🐛 : Conexión a la BB.DD. realizada con éxito: <connection object at 0x0000022687F71690; dsn: 'user=postgres password=xxx dbname=orm host=127.0.0.1 port=5434', closed: 0>
+02:55:30 19/12/2023 [Conexion.py:20] 🐛 : Conexión a la BB.DD. realizada con éxito: <connection object at 0x000002D301E81690; dsn: 'user=postgres password=xxx dbname=orm host=127.0.0.1 port=5434', closed: 0>
+03:04:25 19/12/2023 [Conexion.py:20] 🐛 : Conexión a la BB.DD. realizada con éxito: <connection object at 0x000002838F7857A0; dsn: 'user=postgres password=xxx dbname=orm host=127.0.0.1 port=5434', closed: 0>
+03:06:52 19/12/2023 [Conexion.py:20] 🐛 : Conexión a la BB.DD. realizada con éxito: <connection object at 0x000001EE27F5D7A0; dsn: 'user=postgres password=xxx dbname=orm host=127.0.0.1 port=5434', closed: 0>
+03:06:52 19/12/2023 [PersonaDAO.py:43] 🐛 : Persona insertada: Entidad: [Posición X: 470.31074202976697, Posición Y: 518.511239239776, Color: aqua]
+03:06:52 19/12/2023 [PersonaDAO.py:43] 🐛 : Persona insertada: Entidad: [Posición X: 520.0927024810239, Posición Y: 508.27607197538197, Color: red]
+03:06:52 19/12/2023 [PersonaDAO.py:43] 🐛 : Persona insertada: Entidad: [Posición X: 244.21019852984915, Posición Y: 758.0147200744472, Color: yellow]
+03:06:52 19/12/2023 [PersonaDAO.py:43] 🐛 : Persona insertada: Entidad: [Posición X: 632.9801359137646, Posición Y: 980.6629815810987, Color: white]
+03:06:52 19/12/2023 [PersonaDAO.py:43] 🐛 : Persona insertada: Entidad: [Posición X: 89.72920420118328, Posición Y: 387.1806574203856, Color: yellow]
+03:07:03 19/12/2023 [PersonaDAO.py:62] 🐛 : Objeto eliminado: Entidad: [Posición X: 971.4746069510207, Posición Y: 35.53237521676495, Color: fuchsia]
+03:07:28 19/12/2023 [PersonaDAO.py:53] 🐛 : Persona actualizada: Entidad: [Posición X: 947.5090168041727, Posición Y: 54.214202211451195, Color: gray]
+03:07:28 19/12/2023 [PersonaDAO.py:53] 🐛 : Persona actualizada: Entidad: [Posición X: 824.920950817216, Posición Y: 288.7996983148651, Color: silver]
+03:07:28 19/12/2023 [PersonaDAO.py:53] 🐛 : Persona actualizada: Entidad: [Posición X: 291.5734942274108, Posición Y: 57.246161350597966, Color: green]
+03:07:28 19/12/2023 [PersonaDAO.py:53] 🐛 : Persona actualizada: Entidad: [Posición X: 797.4387410320876, Posición Y: 582.1701178120184, Color: white]
+03:07:28 19/12/2023 [PersonaDAO.py:53] 🐛 : Persona actualizada: Entidad: [Posición X: 971.4746069510207, Posición Y: 35.53237521676495, Color: fuchsia]
+03:07:42 19/12/2023 [Conexion.py:20] 🐛 : Conexión a la BB.DD. realizada con éxito: <connection object at 0x0000025E1ED7D690; dsn: 'user=postgres password=xxx dbname=orm host=127.0.0.1 port=5434', closed: 0>
+03:07:45 19/12/2023 [PersonaDAO.py:62] 🐛 : Objeto eliminado: Entidad: [Posición X: 451.4003707100214, Posición Y: 835.9063945446445, Color: navy]
+03:08:23 19/12/2023 [Conexion.py:20] 🐛 : Conexión a la BB.DD. realizada con éxito: <connection object at 0x000001E603011690; dsn: 'user=postgres password=xxx dbname=orm host=127.0.0.1 port=5434', closed: 0>
+03:08:25 19/12/2023 [PersonaDAO.py:62] 🐛 : Objeto eliminado: Entidad: [Posición X: 436.77556954675504, Posición Y: 861.6504145117078, Color: green]

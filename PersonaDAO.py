@@ -2,6 +2,7 @@ from Conexion import Conexion
 from Persona import Persona
 from Personas import Personas
 from logger_base import log
+import json
 
 class PersonaDAO:
   '''
@@ -12,8 +13,8 @@ class PersonaDAO:
   _SELECCIONAR = 'SELECT * FROM jugadores ORDER BY id_jugador'
   _COMPROBAR = 'SELECT EXISTS(SELECT 1 FROM jugadores)'
   _EXISTE_REGISTRO = 'SELECT EXISTS(SELECT 1 FROM jugadores WHERE id_jugador=%s)'
-  _INSERTAR = 'INSERT INTO jugadores(id_jugador, posx, posy, radio, direccion, color, entidad, energia, afiliacion, entidad_energia, entidad_afiliacion) VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)'
-  _ACTUALIZAR = 'UPDATE jugadores SET posx=%s, posy=%s, radio=%s, direccion=%s, color=%s, entidad=%s, energia=%s, afiliacion=%s, entidad_energia=%s, entidad_afiliacion=%s WHERE id_jugador=%s'
+  _INSERTAR = 'INSERT INTO jugadores(id_jugador, posx, posy, radio, direccion, color, entidad, energia, afiliacion, entidad_energia, entidad_afiliacion, inventario) VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)'
+  _ACTUALIZAR = 'UPDATE jugadores SET posx=%s, posy=%s, radio=%s, direccion=%s, color=%s, entidad=%s, energia=%s, afiliacion=%s, entidad_energia=%s, entidad_afiliacion=%s, inventario=%s WHERE id_jugador=%s'
   _ELIMINAR  = 'DELETE FROM jugadores WHERE id_jugador=%s'
   
   @classmethod
@@ -26,8 +27,9 @@ class PersonaDAO:
         # Se consiguen todos los registros de la BB.DD. con un fetchall()
         registros_jugadores = cursor.fetchall()
         for registro in registros_jugadores:
+          inventario = json.loads(registro[11])
           # A través de las posiciones dentro del registro se accede a los campos de Persona
-          persona = Persona(registro[0], registro[1], registro[2], registro[3], registro[4], registro[5], registro[6], registro[7], registro[8], registro[9], registro[10])
+          persona = Persona(registro[0], registro[1], registro[2], registro[3], registro[4], registro[5], registro[6], registro[7], registro[8], registro[9], registro[10], inventario)
           Personas.agregar_persona(persona)
         return Personas.personas
       
@@ -35,7 +37,8 @@ class PersonaDAO:
   def insertar(cls, p):
     with Conexion.obtenerConexion() as conexion:
       with conexion.cursor() as cursor:
-        valores = (p.id_jugador, p.posx, p.posy, p.radio, p.direccion, p.color, p.entidad, p.energia, p.afiliacion, p.entidad_energia, p.entidad_afiliacion)
+        inventario_json = json.dumps(p.inventario)
+        valores = (p.id_jugador, p.posx, p.posy, p.radio, p.direccion, p.color, p.entidad, p.energia, p.afiliacion, p.entidad_energia, p.entidad_afiliacion, inventario_json)
         cursor.execute(cls._INSERTAR, valores)
         log.debug(f'Persona insertada: {p}')
         return cursor.rowcount
@@ -44,7 +47,8 @@ class PersonaDAO:
   def actualizar(cls, p):
     with Conexion.obtenerConexion() as conexion:
       with conexion.cursor() as cursor:
-        valores = (p.posx, p.posy, p.radio, p.direccion, p.color, p.entidad, p.energia, p.afiliacion, p.entidad_energia, p.entidad_afiliacion, p.id_jugador)
+        inventario_json = json.dumps(p.inventario)
+        valores = (p.posx, p.posy, p.radio, p.direccion, p.color, p.entidad, p.energia, p.afiliacion, p.entidad_energia, p.entidad_afiliacion, inventario_json, p.id_jugador)
         cursor.execute(cls._ACTUALIZAR, valores)
         log.debug(f'Persona actualizada: {p}')  
         return cursor.rowcount

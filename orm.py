@@ -4,6 +4,8 @@ import json
 from Persona import Persona
 from Personas import Personas
 from PersonaDAO import PersonaDAO
+from Recogible import Recogible
+from RecogibleDAO import RecogibleDAO
 
 def guardarPersonas():
   # Guardar archivo json
@@ -27,7 +29,8 @@ def guardarPersonas():
         afiliacion = jugador['afiliacion']
         entidad_energia = jugador['entidad_energia']
         entidad_afiliacion = jugador['entidad_afiliacion']
-        persona = Persona(id_jugador, posx, posy, radio, direccion, color, entidad, energia, afiliacion, entidad_energia, entidad_afiliacion)
+        inventario = jugador['inventario']
+        persona = Persona(id_jugador, posx, posy, radio, direccion, color, entidad, energia, afiliacion, entidad_energia, entidad_afiliacion, inventario)
         PersonaDAO.insertar(persona)   
     else:
       for jugador in jugadores:
@@ -42,7 +45,8 @@ def guardarPersonas():
         afiliacion = jugador['afiliacion']
         entidad_energia = jugador['entidad_energia']
         entidad_afiliacion = jugador['entidad_afiliacion']
-        persona = Persona(id_jugador, posx, posy, radio, direccion, color, entidad, energia, afiliacion, entidad_energia, entidad_afiliacion )
+        inventario = jugador['inventario']
+        persona = Persona(id_jugador, posx, posy, radio, direccion, color, entidad, energia, afiliacion, entidad_energia, entidad_afiliacion, inventario)
         PersonaDAO.actualizar(persona)
           
 def mostrar_mensaje_ganador(color_ganador):
@@ -97,7 +101,7 @@ except Exception as e:
 
 # En la coleccion instancio personas en el caso de que no existan
 if Personas.contador_personas == 0:
-  npersonas = 25
+  npersonas = 5
   for i in range(0, npersonas):
     Persona.lienzo = lienzo
     persona = Persona.jugador_random()
